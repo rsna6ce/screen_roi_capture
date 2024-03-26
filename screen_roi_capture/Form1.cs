@@ -45,7 +45,7 @@ namespace screen_roi_capture
             offset_y = this.Height - pictureBoxRoi.Height;
             offset_x = this.Width - pictureBoxRoi.Width;
             comboBoxPresetSize.SelectedIndex = 0;
-            SetPresetScreen(1024, 768);
+            buttonPresetSize_Click(sender, e);
         }
 
         private void SetPresetScreen(int width, int height)

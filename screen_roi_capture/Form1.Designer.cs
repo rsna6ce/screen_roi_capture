@@ -69,9 +69,10 @@
             this.comboBoxPresetSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPresetSize.FormattingEnabled = true;
             this.comboBoxPresetSize.Items.AddRange(new object[] {
-            "640x480",
+            "1280x720",
+            "1024x768",
             "800x600",
-            "1024x768"});
+            "640x480"});
             this.comboBoxPresetSize.Location = new System.Drawing.Point(4, 8);
             this.comboBoxPresetSize.Name = "comboBoxPresetSize";
             this.comboBoxPresetSize.Size = new System.Drawing.Size(68, 20);
