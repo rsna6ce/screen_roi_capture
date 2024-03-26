@@ -32,12 +32,12 @@ namespace screen_roi_capture
 
         private void buttonLeft_Click(object sender, EventArgs e)
         {
-            this.Top -= 1;
+            this.Left -= 1;
         }
 
         private void buttonRight_Click(object sender, EventArgs e)
         {
-            this.Top += 1;
+            this.Left += 1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,6 +45,14 @@ namespace screen_roi_capture
             offset_y = this.Height - pictureBoxRoi.Height;
             offset_x = this.Width - pictureBoxRoi.Width;
             comboBoxPresetSize.SelectedIndex = 0;
+            SetPresetScreen(1024, 768);
+        }
+
+        private void SetPresetScreen(int width, int height)
+        {
+            this.Width = width + offset_x;
+            this.Height = height + offset_y;
+            labelRoiSize.Text = pictureBoxRoi.Width.ToString() + "x" + pictureBoxRoi.Height.ToString();
         }
 
         private void buttonPresetSize_Click(object sender, EventArgs e)
@@ -52,8 +60,7 @@ namespace screen_roi_capture
             string[] width_height = comboBoxPresetSize.Text.Split('x');
             int width = int.Parse(width_height[0]);
             int height = int.Parse(width_height[1]);
-            this.Width = width + offset_x;
-            this.Height = height + offset_y;
+            SetPresetScreen(width, height);
         }
 
         private void buttonCopy_Click(object sender, EventArgs e)
@@ -89,6 +96,36 @@ namespace screen_roi_capture
             bitmap.Dispose();
             g.Dispose();
             numericUpDownSave.Value = (int)numericUpDownSave.Value + 1;
+        }
+
+        private void pictureBoxRoi_SizeChanged(object sender, EventArgs e)
+        {
+            labelRoiSize.Text = pictureBoxRoi.Width.ToString() + "x" + pictureBoxRoi.Height.ToString();
+        }
+
+        private void Form1_LocationChanged(object sender, EventArgs e)
+        {
+            labelPos.Text = this.Top.ToString() + "," + this.Left.ToString();
+        }
+
+        private void buttonHeightUp_Click(object sender, EventArgs e)
+        {
+            this.Height -= 1;
+        }
+
+        private void buttonHeightDown_Click(object sender, EventArgs e)
+        {
+            this.Height += 1;
+        }
+
+        private void buttonWidthDown_Click(object sender, EventArgs e)
+        {
+            this.Width -= 1;
+        }
+
+        private void buttonWidthUp_Click(object sender, EventArgs e)
+        {
+            this.Width += 1;
         }
     }
 }
