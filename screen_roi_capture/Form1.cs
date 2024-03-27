@@ -72,7 +72,7 @@ namespace screen_roi_capture
         {
             Bitmap bitmap = new Bitmap(pictureBoxRoi.Width, pictureBoxRoi.Height);
             Graphics g = Graphics.FromImage(bitmap);
-            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), bitmap.Size);
+            g.CopyFromScreen(new Point(pictureBoxRoi.PointToScreen(new Point(0, 0)).X, pictureBoxRoi.PointToScreen(new Point(0, 0)).Y), new Point(0, 0), bitmap.Size);
             Clipboard.SetImage(bitmap);
             bitmap.Dispose();
             g.Dispose();
@@ -88,15 +88,20 @@ namespace screen_roi_capture
             sfd.RestoreDirectory = true;
             sfd.OverwritePrompt = true;
             sfd.CheckPathExists = false;
-            if (sfd.ShowDialog() != DialogResult.OK)
-            {
-                //cancel
-                return;
-            }
 
+            // capture
             Bitmap bitmap = new Bitmap(pictureBoxRoi.Width, pictureBoxRoi.Height);
             Graphics g = Graphics.FromImage(bitmap);
-            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), bitmap.Size);
+            g.CopyFromScreen(new Point(pictureBoxRoi.PointToScreen(new Point(0, 0)).X, pictureBoxRoi.PointToScreen(new Point(0, 0)).Y), new Point(0, 0), bitmap.Size);
+
+            // dialog
+            if (sfd.ShowDialog() != DialogResult.OK)
+            {
+                // cancel
+                return;
+            }
+            
+            // save
             bitmap.Save(sfd.FileName);
             bitmap.Dispose();
             g.Dispose();

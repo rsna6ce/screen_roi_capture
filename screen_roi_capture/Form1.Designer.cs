@@ -56,7 +56,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxRoi.BackColor = System.Drawing.Color.Lime;
-            this.pictureBoxRoi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxRoi.Location = new System.Drawing.Point(4, 36);
             this.pictureBoxRoi.Name = "pictureBoxRoi";
             this.pictureBoxRoi.Size = new System.Drawing.Size(800, 600);
@@ -226,6 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(807, 640);
             this.Controls.Add(this.labelPos);
             this.Controls.Add(this.buttonWidthUp);
