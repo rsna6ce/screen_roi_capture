@@ -46,6 +46,8 @@
             this.buttonHeightDown = new System.Windows.Forms.Button();
             this.buttonHeightUp = new System.Windows.Forms.Button();
             this.labelPos = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSave)).BeginInit();
             this.SuspendLayout();
@@ -74,14 +76,14 @@
             "640x480"});
             this.comboBoxPresetSize.Location = new System.Drawing.Point(4, 8);
             this.comboBoxPresetSize.Name = "comboBoxPresetSize";
-            this.comboBoxPresetSize.Size = new System.Drawing.Size(68, 20);
+            this.comboBoxPresetSize.Size = new System.Drawing.Size(76, 20);
             this.comboBoxPresetSize.TabIndex = 1;
             // 
             // buttonPresetSize
             // 
-            this.buttonPresetSize.Location = new System.Drawing.Point(76, 8);
+            this.buttonPresetSize.Location = new System.Drawing.Point(80, 8);
             this.buttonPresetSize.Name = "buttonPresetSize";
-            this.buttonPresetSize.Size = new System.Drawing.Size(48, 20);
+            this.buttonPresetSize.Size = new System.Drawing.Size(36, 20);
             this.buttonPresetSize.TabIndex = 2;
             this.buttonPresetSize.Text = "set";
             this.buttonPresetSize.UseVisualStyleBackColor = true;
@@ -89,9 +91,9 @@
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Location = new System.Drawing.Point(292, 8);
+            this.buttonCopy.Location = new System.Drawing.Point(256, 8);
             this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(48, 20);
+            this.buttonCopy.Size = new System.Drawing.Size(40, 20);
             this.buttonCopy.TabIndex = 3;
             this.buttonCopy.Text = "copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
@@ -99,9 +101,9 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(240, 8);
+            this.buttonSave.Location = new System.Drawing.Point(216, 8);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(48, 20);
+            this.buttonSave.Size = new System.Drawing.Size(40, 20);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -109,7 +111,7 @@
             // 
             // numericUpDownSave
             // 
-            this.numericUpDownSave.Location = new System.Drawing.Point(188, 8);
+            this.numericUpDownSave.Location = new System.Drawing.Point(168, 8);
             this.numericUpDownSave.Name = "numericUpDownSave";
             this.numericUpDownSave.Size = new System.Drawing.Size(48, 19);
             this.numericUpDownSave.TabIndex = 5;
@@ -117,7 +119,7 @@
             // 
             // textBoxSave
             // 
-            this.textBoxSave.Location = new System.Drawing.Point(144, 8);
+            this.textBoxSave.Location = new System.Drawing.Point(124, 8);
             this.textBoxSave.Name = "textBoxSave";
             this.textBoxSave.Size = new System.Drawing.Size(44, 19);
             this.textBoxSave.TabIndex = 6;
@@ -125,9 +127,9 @@
             // 
             // buttonUp
             // 
-            this.buttonUp.Location = new System.Drawing.Point(364, 8);
+            this.buttonUp.Location = new System.Drawing.Point(312, 8);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(31, 20);
+            this.buttonUp.Size = new System.Drawing.Size(20, 20);
             this.buttonUp.TabIndex = 7;
             this.buttonUp.Text = "↑";
             this.buttonUp.UseVisualStyleBackColor = true;
@@ -135,9 +137,9 @@
             // 
             // buttonDown
             // 
-            this.buttonDown.Location = new System.Drawing.Point(396, 8);
+            this.buttonDown.Location = new System.Drawing.Point(332, 8);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(31, 20);
+            this.buttonDown.Size = new System.Drawing.Size(20, 20);
             this.buttonDown.TabIndex = 8;
             this.buttonDown.Text = "↓";
             this.buttonDown.UseVisualStyleBackColor = true;
@@ -145,9 +147,9 @@
             // 
             // buttonLeft
             // 
-            this.buttonLeft.Location = new System.Drawing.Point(428, 8);
+            this.buttonLeft.Location = new System.Drawing.Point(352, 8);
             this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(31, 20);
+            this.buttonLeft.Size = new System.Drawing.Size(20, 20);
             this.buttonLeft.TabIndex = 9;
             this.buttonLeft.Text = "←";
             this.buttonLeft.UseVisualStyleBackColor = true;
@@ -155,9 +157,9 @@
             // 
             // buttonRight
             // 
-            this.buttonRight.Location = new System.Drawing.Point(460, 8);
+            this.buttonRight.Location = new System.Drawing.Point(372, 8);
             this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(31, 20);
+            this.buttonRight.Size = new System.Drawing.Size(20, 20);
             this.buttonRight.TabIndex = 10;
             this.buttonRight.Text = "→";
             this.buttonRight.UseVisualStyleBackColor = true;
@@ -166,7 +168,7 @@
             // labelRoiSize
             // 
             this.labelRoiSize.AutoSize = true;
-            this.labelRoiSize.Location = new System.Drawing.Point(684, 12);
+            this.labelRoiSize.Location = new System.Drawing.Point(552, 16);
             this.labelRoiSize.Name = "labelRoiSize";
             this.labelRoiSize.Size = new System.Drawing.Size(25, 12);
             this.labelRoiSize.TabIndex = 11;
@@ -174,9 +176,9 @@
             // 
             // buttonWidthUp
             // 
-            this.buttonWidthUp.Location = new System.Drawing.Point(652, 8);
+            this.buttonWidthUp.Location = new System.Drawing.Point(532, 8);
             this.buttonWidthUp.Name = "buttonWidthUp";
-            this.buttonWidthUp.Size = new System.Drawing.Size(31, 20);
+            this.buttonWidthUp.Size = new System.Drawing.Size(20, 20);
             this.buttonWidthUp.TabIndex = 15;
             this.buttonWidthUp.Text = "→";
             this.buttonWidthUp.UseVisualStyleBackColor = true;
@@ -184,9 +186,9 @@
             // 
             // buttonWidthDown
             // 
-            this.buttonWidthDown.Location = new System.Drawing.Point(620, 8);
+            this.buttonWidthDown.Location = new System.Drawing.Point(512, 8);
             this.buttonWidthDown.Name = "buttonWidthDown";
-            this.buttonWidthDown.Size = new System.Drawing.Size(31, 20);
+            this.buttonWidthDown.Size = new System.Drawing.Size(20, 20);
             this.buttonWidthDown.TabIndex = 14;
             this.buttonWidthDown.Text = "←";
             this.buttonWidthDown.UseVisualStyleBackColor = true;
@@ -194,9 +196,9 @@
             // 
             // buttonHeightDown
             // 
-            this.buttonHeightDown.Location = new System.Drawing.Point(588, 8);
+            this.buttonHeightDown.Location = new System.Drawing.Point(492, 8);
             this.buttonHeightDown.Name = "buttonHeightDown";
-            this.buttonHeightDown.Size = new System.Drawing.Size(31, 20);
+            this.buttonHeightDown.Size = new System.Drawing.Size(20, 20);
             this.buttonHeightDown.TabIndex = 13;
             this.buttonHeightDown.Text = "↓";
             this.buttonHeightDown.UseVisualStyleBackColor = true;
@@ -204,9 +206,9 @@
             // 
             // buttonHeightUp
             // 
-            this.buttonHeightUp.Location = new System.Drawing.Point(556, 8);
+            this.buttonHeightUp.Location = new System.Drawing.Point(472, 8);
             this.buttonHeightUp.Name = "buttonHeightUp";
-            this.buttonHeightUp.Size = new System.Drawing.Size(31, 20);
+            this.buttonHeightUp.Size = new System.Drawing.Size(20, 20);
             this.buttonHeightUp.TabIndex = 12;
             this.buttonHeightUp.Text = "↑";
             this.buttonHeightUp.UseVisualStyleBackColor = true;
@@ -215,11 +217,29 @@
             // labelPos
             // 
             this.labelPos.AutoSize = true;
-            this.labelPos.Location = new System.Drawing.Point(492, 12);
+            this.labelPos.Location = new System.Drawing.Point(392, 16);
             this.labelPos.Name = "labelPos";
             this.labelPos.Size = new System.Drawing.Size(23, 12);
             this.labelPos.TabIndex = 16;
             this.labelPos.Text = "pos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(392, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 12);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "pos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(552, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 12);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "size";
             // 
             // Form1
             // 
@@ -227,6 +247,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(807, 640);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelPos);
             this.Controls.Add(this.buttonWidthUp);
             this.Controls.Add(this.buttonWidthDown);
@@ -278,6 +300,8 @@
         private System.Windows.Forms.Button buttonHeightDown;
         private System.Windows.Forms.Button buttonHeightUp;
         private System.Windows.Forms.Label labelPos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
