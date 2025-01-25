@@ -48,6 +48,7 @@
             this.labelPos = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxGrid = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSave)).BeginInit();
             this.SuspendLayout();
@@ -241,12 +242,24 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "size";
             // 
+            // checkBoxGrid
+            // 
+            this.checkBoxGrid.AutoSize = true;
+            this.checkBoxGrid.Location = new System.Drawing.Point(620, 12);
+            this.checkBoxGrid.Name = "checkBoxGrid";
+            this.checkBoxGrid.Size = new System.Drawing.Size(43, 16);
+            this.checkBoxGrid.TabIndex = 20;
+            this.checkBoxGrid.Text = "grid";
+            this.checkBoxGrid.UseVisualStyleBackColor = true;
+            this.checkBoxGrid.CheckedChanged += new System.EventHandler(this.checkBoxGrid_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(807, 640);
+            this.Controls.Add(this.checkBoxGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelPos);
@@ -302,6 +315,7 @@
         private System.Windows.Forms.Label labelPos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxGrid;
     }
 }
 

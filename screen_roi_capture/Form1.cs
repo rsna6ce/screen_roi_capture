@@ -19,6 +19,7 @@ namespace screen_roi_capture
 
         private int offset_x = 0;
         private int offset_y = 0;
+        private List<Label> gridline_list = new List<Label>();
 
         private void buttonUp_Click(object sender, EventArgs e)
         {
@@ -70,16 +71,26 @@ namespace screen_roi_capture
 
         private void buttonCopy_Click(object sender, EventArgs e)
         {
+            var grid_enable = this.checkBoxGrid.Checked;
+            this.checkBoxGrid.Checked = false;
+            Application.DoEvents();
+
             Bitmap bitmap = new Bitmap(pictureBoxRoi.Width, pictureBoxRoi.Height);
             Graphics g = Graphics.FromImage(bitmap);
             g.CopyFromScreen(new Point(pictureBoxRoi.PointToScreen(new Point(0, 0)).X, pictureBoxRoi.PointToScreen(new Point(0, 0)).Y), new Point(0, 0), bitmap.Size);
             Clipboard.SetImage(bitmap);
             bitmap.Dispose();
             g.Dispose();
+
+            this.checkBoxGrid.Checked = grid_enable;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            var grid_enable = this.checkBoxGrid.Checked;
+            this.checkBoxGrid.Checked = false;
+            Application.DoEvents();
+
             SaveFileDialog sfd = new SaveFileDialog();
 
             sfd.FileName = textBoxSave.Text + numericUpDownSave.Value.ToString("0000") + ".png";
@@ -106,6 +117,8 @@ namespace screen_roi_capture
             bitmap.Dispose();
             g.Dispose();
             numericUpDownSave.Value = (int)numericUpDownSave.Value + 1;
+
+            this.checkBoxGrid.Checked = grid_enable;
         }
 
         private void pictureBoxRoi_SizeChanged(object sender, EventArgs e)
@@ -136,6 +149,89 @@ namespace screen_roi_capture
         private void buttonWidthUp_Click(object sender, EventArgs e)
         {
             this.Width += 1;
+        }
+
+        private void AddGridLine(int start_x, int start_y, int end_x, int end_y)
+        {
+            var label_temp = new Label();
+            label_temp.BorderStyle = BorderStyle.FixedSingle;
+            label_temp.AutoSize = false;
+            label_temp.ForeColor = Color.Yellow;
+            label_temp.BackColor = Color.Yellow;
+            label_temp.Left = Math.Min(start_x, end_x);
+            label_temp.Top = Math.Min(start_y, end_y);
+            if (start_x == end_x)
+            {
+                label_temp.Width = 1;
+                label_temp.Height = Math.Abs(end_y - start_y);
+            }
+            else if( start_y == end_y)
+            {
+                label_temp.Width = Math.Abs(end_x - start_x);
+                label_temp.Height = 1;
+            }
+            else
+            {
+                label_temp = null;
+                return;
+            }
+            this.gridline_list.Add(label_temp);
+            this.Controls.Add(label_temp);
+            label_temp.BringToFront();
+        }
+
+        private void checkBoxGrid_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxGrid.Checked)
+            {
+                // 16:9のアスペクト比のとき、左右の4:3両端
+                if (pictureBoxRoi.Height / 9 == pictureBoxRoi.Width / 16)
+                {
+                    AddGridLine(
+                        pictureBoxRoi.Left + (pictureBoxRoi.Width - pictureBoxRoi.Height * 4 / 3) / 2,
+                        pictureBoxRoi.Top,
+                        pictureBoxRoi.Left + (pictureBoxRoi.Width - pictureBoxRoi.Height * 4 / 3) / 2,
+                        pictureBoxRoi.Top + pictureBoxRoi.Height);
+                    AddGridLine(
+                        pictureBoxRoi.Left + pictureBoxRoi.Width - (pictureBoxRoi.Width - pictureBoxRoi.Height * 4 / 3) / 2,
+                        pictureBoxRoi.Top,
+                        pictureBoxRoi.Left + pictureBoxRoi.Width - (pictureBoxRoi.Width - pictureBoxRoi.Height * 4 / 3) / 2,
+                        pictureBoxRoi.Top + pictureBoxRoi.Height);
+                }
+                // 縦横三分割
+                AddGridLine(
+                    pictureBoxRoi.Left + (pictureBoxRoi.Width / 3 * 1),
+                    pictureBoxRoi.Top,
+                    pictureBoxRoi.Left + (pictureBoxRoi.Width / 3 * 1),
+                    pictureBoxRoi.Top + pictureBoxRoi.Height);
+                AddGridLine(
+                    pictureBoxRoi.Left + (pictureBoxRoi.Width / 3 * 2),
+                    pictureBoxRoi.Top,
+                    pictureBoxRoi.Left + (pictureBoxRoi.Width / 3 * 2),
+                    pictureBoxRoi.Top + pictureBoxRoi.Height);
+                AddGridLine(
+                    pictureBoxRoi.Left,
+                    pictureBoxRoi.Top + (pictureBoxRoi.Height / 3 * 1),
+                    pictureBoxRoi.Left + pictureBoxRoi.Width,
+                    pictureBoxRoi.Top + (pictureBoxRoi.Height / 3 * 1));
+                AddGridLine(
+                    pictureBoxRoi.Left,
+                    pictureBoxRoi.Top + (pictureBoxRoi.Height / 3 * 2),
+                    pictureBoxRoi.Left + pictureBoxRoi.Width,
+                    pictureBoxRoi.Top + (pictureBoxRoi.Height / 3 * 2));
+            }
+            else
+            {
+                // オブジェクトを消す
+                while (this.gridline_list.Count > 0)
+                {
+                    var line = this.gridline_list[0];
+                    this.Controls.Remove(line);
+                    line = null;
+                    this.gridline_list.RemoveAt(0);
+                }
+
+            }
         }
     }
 }
