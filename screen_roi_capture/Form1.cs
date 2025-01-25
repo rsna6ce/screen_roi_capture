@@ -106,17 +106,14 @@ namespace screen_roi_capture
             g.CopyFromScreen(new Point(pictureBoxRoi.PointToScreen(new Point(0, 0)).X, pictureBoxRoi.PointToScreen(new Point(0, 0)).Y), new Point(0, 0), bitmap.Size);
 
             // dialog
-            if (sfd.ShowDialog() != DialogResult.OK)
-            {
-                // cancel
-                return;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {            
+                // save
+                bitmap.Save(sfd.FileName);
+                bitmap.Dispose();
+                g.Dispose();
+                numericUpDownSave.Value = (int)numericUpDownSave.Value + 1;
             }
-            
-            // save
-            bitmap.Save(sfd.FileName);
-            bitmap.Dispose();
-            g.Dispose();
-            numericUpDownSave.Value = (int)numericUpDownSave.Value + 1;
 
             this.checkBoxGrid.Checked = grid_enable;
         }
