@@ -230,5 +230,35 @@ namespace screen_roi_capture
 
             }
         }
+
+        private void timerSave_Tick(object sender, EventArgs e)
+        {
+            int tim = int.Parse(buttonTimer.Text);
+            tim--;
+            if (tim > 0)
+            {
+                buttonTimer.Text = tim.ToString();
+            }
+            else
+            {
+                timerSave.Enabled = false;
+                buttonSave_Click(sender, e);
+                buttonTimer.Text = "T";
+            }
+        }
+
+        private void buttonTimer_Click(object sender, EventArgs e)
+        {
+            if (timerSave.Enabled)
+            {
+                timerSave.Enabled = false;
+                buttonTimer.Text = "T";
+            }
+            else
+            {
+                timerSave.Enabled = true;
+                buttonTimer.Text = "5";
+            }
+        }
     }
 }

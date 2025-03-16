@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBoxRoi = new System.Windows.Forms.PictureBox();
             this.comboBoxPresetSize = new System.Windows.Forms.ComboBox();
@@ -49,6 +50,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxGrid = new System.Windows.Forms.CheckBox();
+            this.buttonTimer = new System.Windows.Forms.Button();
+            this.timerSave = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSave)).BeginInit();
             this.SuspendLayout();
@@ -92,7 +95,7 @@
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Location = new System.Drawing.Point(256, 8);
+            this.buttonCopy.Location = new System.Drawing.Point(276, 8);
             this.buttonCopy.Name = "buttonCopy";
             this.buttonCopy.Size = new System.Drawing.Size(40, 20);
             this.buttonCopy.TabIndex = 3;
@@ -128,7 +131,7 @@
             // 
             // buttonUp
             // 
-            this.buttonUp.Location = new System.Drawing.Point(312, 8);
+            this.buttonUp.Location = new System.Drawing.Point(336, 8);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(20, 20);
             this.buttonUp.TabIndex = 7;
@@ -138,7 +141,7 @@
             // 
             // buttonDown
             // 
-            this.buttonDown.Location = new System.Drawing.Point(332, 8);
+            this.buttonDown.Location = new System.Drawing.Point(356, 8);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(20, 20);
             this.buttonDown.TabIndex = 8;
@@ -148,7 +151,7 @@
             // 
             // buttonLeft
             // 
-            this.buttonLeft.Location = new System.Drawing.Point(352, 8);
+            this.buttonLeft.Location = new System.Drawing.Point(376, 8);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(20, 20);
             this.buttonLeft.TabIndex = 9;
@@ -158,7 +161,7 @@
             // 
             // buttonRight
             // 
-            this.buttonRight.Location = new System.Drawing.Point(372, 8);
+            this.buttonRight.Location = new System.Drawing.Point(396, 8);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(20, 20);
             this.buttonRight.TabIndex = 10;
@@ -218,7 +221,7 @@
             // labelPos
             // 
             this.labelPos.AutoSize = true;
-            this.labelPos.Location = new System.Drawing.Point(392, 16);
+            this.labelPos.Location = new System.Drawing.Point(416, 16);
             this.labelPos.Name = "labelPos";
             this.labelPos.Size = new System.Drawing.Size(23, 12);
             this.labelPos.TabIndex = 16;
@@ -227,7 +230,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(392, 4);
+            this.label1.Location = new System.Drawing.Point(416, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 17;
@@ -253,6 +256,21 @@
             this.checkBoxGrid.UseVisualStyleBackColor = true;
             this.checkBoxGrid.CheckedChanged += new System.EventHandler(this.checkBoxGrid_CheckedChanged);
             // 
+            // buttonTimer
+            // 
+            this.buttonTimer.Location = new System.Drawing.Point(256, 8);
+            this.buttonTimer.Name = "buttonTimer";
+            this.buttonTimer.Size = new System.Drawing.Size(20, 20);
+            this.buttonTimer.TabIndex = 3;
+            this.buttonTimer.Text = "T";
+            this.buttonTimer.UseVisualStyleBackColor = true;
+            this.buttonTimer.Click += new System.EventHandler(this.buttonTimer_Click);
+            // 
+            // timerSave
+            // 
+            this.timerSave.Interval = 1000;
+            this.timerSave.Tick += new System.EventHandler(this.timerSave_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -275,6 +293,7 @@
             this.Controls.Add(this.textBoxSave);
             this.Controls.Add(this.numericUpDownSave);
             this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonTimer);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.buttonPresetSize);
             this.Controls.Add(this.comboBoxPresetSize);
@@ -316,6 +335,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBoxGrid;
+        private System.Windows.Forms.Button buttonTimer;
+        private System.Windows.Forms.Timer timerSave;
     }
 }
 
